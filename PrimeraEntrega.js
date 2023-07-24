@@ -50,7 +50,7 @@ class productManager {
     }
     }
 
-  // Example
+  // Examples
   
   const manager = new productManager();
 
@@ -58,12 +58,13 @@ class productManager {
 
   manager.addproduct('Producto 2', 'Descripción del producto 2', 19.99, 'imagen2.jpg', 'P2', 5);
 
+  // It will bring all products
   const allProducts = manager.getproducts();
   console.log(allProducts);
-
+    // It will bring the ID via parameters
   const productById = manager.getProductByID(2)
   console.log(productById);
-
+    // it will be an error
   const nonExistentProduct = manager.getProductByID(3)
   console.log(nonExistentProduct);
 
