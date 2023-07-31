@@ -78,12 +78,12 @@ class Contenedor {
     console.log('Todos los productos:', await contenedor.getAll());
 
     // Eliminar producto por ID
-    await contenedor.deleteById(id1);
-    console.log('Producto con ID 1 eliminado.');
+   // await contenedor.deleteById(id1);
+    // console.log('Producto con ID 1 eliminado.');
 
     // Eliminar todos los productos
-    await contenedor.deleteAll();
-    console.log('Todos los productos eliminados.');
+   //  await contenedor.deleteAll();
+   //  console.log('Todos los productos eliminados.');
   } catch (error) {
     console.error('Error:', error.message);
   }
