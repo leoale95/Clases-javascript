@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 
-class Contenedor {
+class Container {
   constructor(file_name) {
     this.file_name = file_name;
   }
@@ -47,43 +47,43 @@ class Contenedor {
   }
 }
 
-// Ejemplo de uso y prueba del módulo:
+// Example of usage and module testing:
 
 (async () => {
   try {
-    const contenedor = new Contenedor('productos.txt');
+    const container = new Container('products.txt');
 
     const product1 = {
-      title: 'Producto 1',
+      title: 'Product 1',
       price: 10,
-      thumbnail: 'url_producto_1',
+      thumbnail: 'product_1_url',
     };
 
     const product2 = {
-      title: 'Producto 2',
+      title: 'Product 2',
       price: 20,
-      thumbnail: 'url_producto_2',
+      thumbnail: 'product_2_url',
     };
 
-    // Guardar productos
-    const id1 = await contenedor.save(product1);
-    const id2 = await contenedor.save(product2);
+    // Save products
+    const id1 = await container.save(product1);
+    const id2 = await container.save(product2);
 
-    console.log('Productos guardados con IDs:', id1, id2);
+    console.log('Products saved with IDs:', id1, id2);
 
-    // Obtener producto por ID
-    console.log('Producto con ID 1:', await contenedor.getById(id1));
+    // Get product by ID
+    console.log('Product with ID 1:', await container.getById(id1));
 
-    // Obtener todos los productos
-    console.log('Todos los productos:', await contenedor.getAll());
+    // Get all products
+    console.log('All products:', await container.getAll());
 
-    // Eliminar producto por ID
-   // await contenedor.deleteById(id1);
-    // console.log('Producto con ID 1 eliminado.');
+    // Delete product by ID
+    // await container.deleteById(id1);
+    // console.log('Product with ID 1 deleted.');
 
-    // Eliminar todos los productos
-   //  await contenedor.deleteAll();
-   //  console.log('Todos los productos eliminados.');
+    // Delete all products
+    // await container.deleteAll();
+    // console.log('All products deleted.');
   } catch (error) {
     console.error('Error:', error.message);
   }

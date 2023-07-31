@@ -4,8 +4,8 @@ const fs = require('fs');
 const app = express();
 const port = 8080;
 
-// Clase Contenedor del desafío anterior
-class Contenedor {
+// Container Class
+class Container {
   constructor(filePath) {
     this.filePath = filePath;
   }
@@ -28,31 +28,31 @@ class Contenedor {
   }
 }
 
-const contenedor = new Contenedor('productos.txt');
+const container = new Container('products.txt');
 
-// Ruta para obtener todos los productos disponibles
-app.get('/productos', async (req, res) => {
+// Route to get all available products
+app.get('/products', async (req, res) => {
   try {
-    const productos = await contenedor.getAll();
-    res.json(productos);
+    const products = await container.getAll();
+    res.json(products);
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// Ruta para obtener un producto aleatorio
-app.get('/productoRandom', async (req, res) => {
+// Route to get a random product
+app.get('/randomProduct', async (req, res) => {
   try {
-    const productos = await contenedor.getAll();
-    const randomIndex = Math.floor(Math.random() * productos.length);
-    const randomProducto = productos[randomIndex];
-    res.json(randomProducto);
+    const products = await container.getAll();
+    const randomIndex = Math.floor(Math.random() * products.length);
+    const randomProduct = products[randomIndex];
+    res.json(randomProduct);
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// Iniciar el servidor
+// Start the server
 app.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
